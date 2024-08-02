@@ -33,6 +33,7 @@ jobs:
           cd MEGAZONE     # 해당 디렉토리로 이동
           ./gradlew build -x test # Gradle 빌드 실행
 
+      # Local에서 선행으로 gradle build가 되어야 build파일이 생김
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
