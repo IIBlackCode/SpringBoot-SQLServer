@@ -68,5 +68,5 @@ jobs:
         with:
           app-name: 'usimsa-as'
           slot-name: 'Production'
-          package: '*.jar'
+          package: '*SNAPSHOT.jar'
           
