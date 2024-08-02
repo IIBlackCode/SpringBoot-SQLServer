@@ -36,7 +36,7 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: java-app
+          name: usimsa-as
           # path: '${{ github.workspace }}/target/*.jar'
           path: '$/MEGAZONE/build/libs/*SNAPSHOT.jar'
 
@@ -53,7 +53,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: java-app
+          name: usimsa-as
       
       - name: Login to Azure
         uses: azure/login@v2
