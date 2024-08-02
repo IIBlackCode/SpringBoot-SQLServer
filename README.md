@@ -10,6 +10,8 @@ PS D:\GIT\JavaWS\가제트코리아> git branch
   master
 * slave
 
+# slave에 Code commit&push
+
 # git 현재 브랜치를 master브랜치로 변경
 git checkout master
 
