@@ -40,7 +40,7 @@ jobs:
         with:
           name: usimsa-as
           # path: '${{ github.workspace }}/target/*.jar'
-          path: '$/MEGAZONE/build/libs/*SNAPSHOT.jar'
+          path: '${{ github.workspace }}/MEGAZONE/build/libs/*SNAPSHOT.jar'
 
   deploy:
     runs-on: ubuntu-latest
