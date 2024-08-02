@@ -6,3 +6,5 @@ CREATE TABLE data (
     date DATETIME DEFAULT GETDATE(),
     rw VARCHAR(10) NULL
 );
+
+Github CICD Test
