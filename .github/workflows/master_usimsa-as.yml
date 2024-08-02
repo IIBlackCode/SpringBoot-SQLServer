@@ -34,13 +34,12 @@ jobs:
           ls -l
           ./gradlew build -x test # Gradle 빌드 실행
 
-      # Local에서 선행으로 gradle build가 되어야 build파일이 생김
+      # Local에서 commit시 build파일은 ignore로 분류
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: usimsa-as
-          # path: '${{ github.workspace }}/target/*.jar'
-          path: '${{ github.workspace }}/MEGAZONE/build/libs/*SNAPSHOT.jar'
+          path: '${{ github.workspace }}/MEGAZONE/build/libs/*SNAPSHOT.war'
 
   deploy:
     runs-on: ubuntu-latest
@@ -70,5 +69,5 @@ jobs:
         with:
           app-name: 'usimsa-as'
           slot-name: 'Production'
-          package: '*SNAPSHOT.jar'
+          package: '*SNAPSHOT.war'
           
