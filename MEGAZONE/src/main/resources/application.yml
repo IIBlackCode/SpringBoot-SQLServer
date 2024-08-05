@@ -16,7 +16,7 @@ spring:
   datasource:
     master:
 #      jdbc-url: jdbc:log4jdbc:mysql://kms-master.mysql.database.azure.com:3306/mtc
-      jdbc-url: jdbc:log4jdbc:sqlserver://esim-test.database.windows.net;database=esim-db-test
+      jdbc-url: jdbc:log4jdbc:sqlserver://usimsa-kms-db.database.windows.net;database=usimsa-kms-sqldb
       username: master
       password: megazone!234
 #    slave:
