@@ -38,7 +38,7 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: usimsa-as
+          name: usimsa-kms-as
           path: '${{ github.workspace }}/usimsa/build/libs/*SNAPSHOT.war'
 
   deploy:
@@ -54,7 +54,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: usimsa-as
+          name: usimsa-kms-as
       
       - name: Login to Azure
         uses: azure/login@v2
@@ -67,7 +67,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'usimsa-as'
+          app-name: 'usimsa-kms-as'
           slot-name: 'Production'
           package: '*SNAPSHOT.war'
           
