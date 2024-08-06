@@ -22,14 +22,24 @@ jobs:
           java-version: '17'
           distribution: 'microsoft'
 
-      - name: Build with Maven
-        run: mvn clean install
+      # 1. Gradle build에 필요한 권한 부여
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+        working-directory: usimsa
 
+      # 2. Gradle build 진행
+      - name: Build with Gradle
+        run : |
+          cd usimsa     # 해당 디렉토리로 이동
+          ls -l
+          ./gradlew build -x test # Gradle 빌드 실행
+
+      # Local에서 commit시 build파일은 ignore로 분류
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          name: usimsa-as
+          path: '${{ github.workspace }}/usimsa/build/libs/*SNAPSHOT.war'
 
   deploy:
     runs-on: ubuntu-latest
@@ -44,7 +54,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: java-app
+          name: usimsa-as
       
       - name: Login to Azure
         uses: azure/login@v2
@@ -57,7 +67,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'usimsa-kms-as'
+          app-name: 'usimsa-as'
           slot-name: 'Production'
-          package: '*.jar'
+          package: '*SNAPSHOT.war'
           
