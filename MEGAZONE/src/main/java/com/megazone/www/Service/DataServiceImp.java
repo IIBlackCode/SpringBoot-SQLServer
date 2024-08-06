@@ -28,7 +28,8 @@ public class DataServiceImp implements DataService {
     private AutoCRUD_thread insert;
     
     @Autowired
-    public DataServiceImp(@Qualifier("masterSqlSession") SqlSession sqlSession) {
+//    public DataServiceImp(@Qualifier("masterSqlSession") SqlSession sqlSession) {
+	public DataServiceImp(SqlSession sqlSession) {
         this.sqlSession = sqlSession;
         // Initialize the executorService when the thread is created
         this.executorService = Executors.newSingleThreadScheduledExecutor();

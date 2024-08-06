@@ -11,7 +11,10 @@ public class DashboardServiceImp implements DashboardService {
 	
 	private final SqlSession sqlSession;
 	
-	public DashboardServiceImp(@Qualifier("slaveSqlSession") SqlSession sqlSession) {
+//	public DashboardServiceImp(@Qualifier("slaveSqlSession") SqlSession sqlSession) {
+//		this.sqlSession = sqlSession;
+//	}
+	public DashboardServiceImp(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;
 	}
 

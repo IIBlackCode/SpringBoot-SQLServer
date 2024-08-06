@@ -14,23 +14,23 @@ spring:
       on-profile: default
 #  profiles: default
   datasource:
-    master:
+#    master:
 #      jdbc-url: jdbc:log4jdbc:mysql://kms-master.mysql.database.azure.com:3306/mtc
-      jdbc-url: jdbc:log4jdbc:sqlserver://usimsa-kms-db.database.windows.net;database=usimsa-kms-sqldb
-      username: master
-      password: megazone!234
+    jdbc-url: jdbc:log4jdbc:sqlserver://usimsa-sequel-sqldb.database.windows.net;database=usimsa-kms-db
+    username: master
+    password: megazone!234
 #    slave:
 #      jdbc-url: jdbc:log4jdbc:mysql:loadbalance://kms-slave1.mysql.database.azure.com:3306,kms-slave2.mysql.database.azure.com:3306/mtc
 #      username: master
 #      password: megazone!234
         
-      read-only: true # Slave DB는 Read만
+#      read-only: true # Slave DB는 Read만
       # 로드 밸런싱을 위한 속성 설정
-      properties:
+#      properties:
         # 로드 밸런싱을 위한 연결 그룹 설정
-        loadBalanceConnectionGroup: first
+#        loadBalanceConnectionGroup: first
         # JMX를 통한 로드 밸런싱 연결 관리를 활성화
-        ha.enableJMX: true
+#        ha.enableJMX: true
 
   mvc:
     view:

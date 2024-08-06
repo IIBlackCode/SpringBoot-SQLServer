@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+#    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:log4jdbc:sqlserver://usimsa-sequel-sqldb.database.windows.net;database=usimsa-kms-db
+    username: master
+    password: megazone!234
+    serverTimezone: UTC
+    
+  mvc:
+    view:
+      prefix: /WEB-INF/views/   # Controller가 리턴시 앞에붙는 경로 명
+      suffix: .jsp              # Controller가 리턴시 뒤에붙는 경로 명
+  
+  # 화면 자동반영 관련 설정
+  devtools:
+    livereload:
+      enabled: true
+      
+# Mybatis 설정
+mybatis:
+  # default Package location - resultType의 Alias를 지정합니다.
+  type-aliases-package: com.usimsa.as.VO
+  # mapper location - 바라 볼 xml 파일을 지정합니다.
+  mapper-locations: classpath:mapper/*.xml
+  # column name to camel case - 반환 받는 컬럼명을 CamelCase로 받는 설정을 합니다.
+  configuration:
+    map-underscore-to-camel-case: true
+server:
+  port: 80
+  servlet:
+    encoding:
+      charset: UTF-8
